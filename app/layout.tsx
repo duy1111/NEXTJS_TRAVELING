@@ -2,7 +2,7 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import Navbar from './components/navbar/Navbar'
 import ClientOnly from './components/ClientOnly'
-import Modal from './components/modals/modal'
+import RegisterModal from './components/modals/RegisterModal'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ClientOnly>
-          <Modal/>
+          <RegisterModal/>
           <Navbar/>
         </ClientOnly>
         {children}
