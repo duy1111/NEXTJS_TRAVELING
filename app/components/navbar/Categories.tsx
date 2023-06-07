@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import Container from '../Container'
 import {TbBeach, TbMountain, TbPool} from 'react-icons/tb'
@@ -107,7 +108,7 @@ const Categories = () => {
         <div className='pt-4 flex flex-row items-center justify-between overflow-x-auto ' >
             {categories.map((item,index) => {
                 return (
-                    <CategoryBox key={item.label} selected={category === item.label} label={item.label}  icon={item.icon} />
+                    <CategoryBox key={item.label} description={item.description} selected={category === item.label} label={item.label}  icon={item.icon} />
                 )
             })}
         </div>
