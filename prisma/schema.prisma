@@ -50,7 +50,7 @@ model Listing {
   title String
   description String
   imageSrc String
-  createAt DateTime @default(now())
+  createdAt DateTime @default(now())
   category String
   roomCount Int
   bathroomCount Int
