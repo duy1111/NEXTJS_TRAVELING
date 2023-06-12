@@ -2,12 +2,17 @@
 import ClientOnly from './components/ClientOnly'
 import Container from './components/Container'
 import EmptyState from './components/EmptyState';
-import getListings from './actions/getListings';
+import getListings, { IListingsParams } from './actions/getListings';
 import ListingCard from './components/listings/ListingCard';
 import getCurrentUser from './actions/getCurrentUser';
 
-export default async function Home() {
-  const listings = await getListings()
+
+interface HomeProps {
+  searchParams : IListingsParams
+}
+
+ const  HomePage = async ({searchParams}:HomeProps) => {
+  const listings = await getListings(searchParams)
   const currentUser = await getCurrentUser()
   if(listings.length ===0) {
     return (
@@ -15,12 +20,13 @@ export default async function Home() {
         <EmptyState showReset />
       </ClientOnly>
     )
-  }
+  } 
+
   return (
     <ClientOnly>
       <Container>
         <div className='pt-24 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:gird-cols-4 xl:gird-cols-5 2xl:grid-cols-6 gap-8 ' >
-          {listings.map((listing) => {
+        {listings.map((listing) => {
             return (
               <ListingCard
                 key={listing.id}
@@ -34,3 +40,5 @@ export default async function Home() {
     </ClientOnly>
   )
 }
+
+export default HomePage

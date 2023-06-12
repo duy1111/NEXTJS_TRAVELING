@@ -5,7 +5,7 @@ import getCurrentUser from "../actions/getCurrentUser";
 import getReservation from "../actions/getReservations";
 import ReservationsClient from "./ReservationsClient";
 
-const ReservationPage = async () => {
+ const ReservationPage = async () => {
 
     const currentUser = await getCurrentUser()
     if(!currentUser){
@@ -42,3 +42,4 @@ const ReservationPage = async () => {
         </ClientOnly>
     )
 }
+export default ReservationPage

@@ -23,7 +23,7 @@ export default async function getReservation(
             query.userId = userId
         }
         if(authorId){
-            query.authorId = authorId
+            query.userId = authorId
         }
 
 
@@ -37,7 +37,7 @@ export default async function getReservation(
             }
         });
 
-        const SafeReservation = reservations.map(
+        const SafeReservation =  reservations.map(
             (reservation) => ({
                 ...reservation,
                 createdAt: reservation.createdAt.toISOString(),
