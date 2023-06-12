@@ -11,7 +11,7 @@ interface HomeProps {
   searchParams : IListingsParams
 }
 
-const  Home = async ({searchParams}: HomeProps) => {
+const Home = async ({ searchParams }: HomeProps ) => {
   const listings = await getListings(searchParams)
   console.log('check pấm',searchParams)
   const currentUser = await getCurrentUser()

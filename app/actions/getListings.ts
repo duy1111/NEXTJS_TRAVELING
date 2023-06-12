@@ -19,9 +19,7 @@ export default async function getListings(
         let query: any = {};
 
 
-        if(userId){
-            query.userId = userId;
-        }
+        
 
         if(category){
             query.category = category
@@ -41,12 +39,15 @@ export default async function getListings(
                 gte :+bathroomCount
             }
         }
+        if(userId){
+            query.userId = userId;
+        }
 
 
         if(locationValue){
             query.locationValue = locationValue;
         }
-
+        console.log('chekc quẻy',query)
 
         if(startDate && endDate) {
             query.NOT = {
