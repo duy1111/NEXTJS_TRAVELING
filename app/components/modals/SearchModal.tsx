@@ -53,7 +53,7 @@ const SearchModal = () => {
     const onSubmit = useCallback(async() => {
 
         if(step !== STEPS.INFO){
-            return onNext
+            return onNext()
         }
 
         let currentQuery = {}

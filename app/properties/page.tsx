@@ -1,10 +1,9 @@
+
 import React from 'react'
 import EmptyState from '../components/EmptyState'
 import ClientOnly from '../components/ClientOnly'
 
 import getCurrentUser from '../actions/getCurrentUser'
-import getReservation from '../actions/getReservations'
-import TripsClient from './PropertiesClient'
 import getListings from '../actions/getListings'
 import PropertiesClient from './PropertiesClient'
 

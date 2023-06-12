@@ -11,8 +11,9 @@ interface HomeProps {
   searchParams : IListingsParams
 }
 
- const  HomePage = async ({searchParams}:HomeProps) => {
+const  Home = async ({searchParams}: HomeProps) => {
   const listings = await getListings(searchParams)
+  console.log('check pấm',searchParams)
   const currentUser = await getCurrentUser()
   if(listings.length ===0) {
     return (
@@ -41,4 +42,4 @@ interface HomeProps {
   )
 }
 
-export default HomePage
+export default Home
