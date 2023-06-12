@@ -1,6 +1,6 @@
 'use client'
 import useCountries from '@/app/hooks/useCountryModal'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Select from 'react-select'
 
 export type CountrySelectValue  = {
@@ -11,17 +11,23 @@ export type CountrySelectValue  = {
     value: string
 }
 interface CountrySelectProps {
-    value?: string 
+    value?: CountrySelectValue 
     onChange: (value: CountrySelectValue) => void
 }
 const CountrySelect:React.FC<CountrySelectProps> = ({value, onChange}) => {
+    
     const {getAll} = useCountries();
+    console.log('check all get',getAll())
+    const [dataCountry, setDataCountry] = useState<any>()
+    useEffect(() => {
+        setDataCountry(getAll())
+    },[getAll])
   return (
     <div>
         <Select
             placeholder="Anywhere"
             isClearable
-            options={ getAll()}
+            options={dataCountry ? dataCountry : ''}
             value={value}
             onChange={(value) =>  onChange(value as CountrySelectValue )}
             formatOptionLabel={(option: any) => (
