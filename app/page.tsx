@@ -16,7 +16,7 @@ const Home = async ({ searchParams }: HomeProps) => {
   let payload :any = {
     ...searchParams
   }
-  console.log('check type p', typeof payload)
+ 
   const listings = await getListings(payload);
   const currentUser = await getCurrentUser();
 

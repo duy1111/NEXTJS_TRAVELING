@@ -47,7 +47,7 @@ export default async function getListings(
         if(locationValue){
             query.locationValue = locationValue;
         }
-        console.log('chekc quẻy',query)
+    
 
         if(startDate && endDate) {
             query.NOT = {
