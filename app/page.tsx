@@ -13,7 +13,11 @@ interface HomeProps {
 };
 
 const Home = async ({ searchParams }: HomeProps) => {
-  const listings = await getListings(searchParams);
+  let payload :any = {
+    ...searchParams
+  }
+  console.log('check type p', typeof payload)
+  const listings = await getListings(payload);
   const currentUser = await getCurrentUser();
 
   if (listings.length === 0) {
